@@ -56,30 +56,17 @@
                               "DISABLE" or "MODE" or "BLEUART" or
                               "HWUART"  or "SPI"  or "MANUAL"
     -----------------------------------------------------------------------*/
-    #define FACTORYRESET_ENABLE         1
+    #define FACTORYRESET_ENABLE         0
     #define MINIMUM_FIRMWARE_VERSION    "0.6.6"
     #define MODE_LED_BEHAVIOUR          "MODE"
 /*=========================================================================*/
 
 // Create the bluefruit object, either software serial...uncomment these lines
-/*
+
 SoftwareSerial bluefruitSS = SoftwareSerial(BLUEFRUIT_SWUART_TXD_PIN, BLUEFRUIT_SWUART_RXD_PIN);
 
 Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
                       BLUEFRUIT_UART_CTS_PIN, BLUEFRUIT_UART_RTS_PIN);
-*/
-
-/* ...or hardware serial, which does not need the RTS/CTS pins. Uncomment this line */
-// Adafruit_BluefruitLE_UART ble(BLUEFRUIT_HWSERIAL_NAME, BLUEFRUIT_UART_MODE_PIN);
-
-/* ...hardware SPI, using SCK/MOSI/MISO hardware SPI pins and then user selected CS/IRQ/RST */
-Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
-
-/* ...software SPI, using SCK/MOSI/MISO user-defined SPI pins and then user selected CS/IRQ/RST */
-//Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_SCK, BLUEFRUIT_SPI_MISO,
-//                             BLUEFRUIT_SPI_MOSI, BLUEFRUIT_SPI_CS,
-//                             BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
-
 
 // A small helper
 void error(const __FlashStringHelper*err) {
@@ -104,6 +91,7 @@ extern uint8_t packetbuffer[];
 /**************************************************************************/
 void setup(void)
 {
+  pinMode(2, OUTPUT);
   while (!Serial);  // required for Flora & Micro
   delay(500);
 
@@ -145,8 +133,11 @@ void setup(void)
 
   /* Wait for connection */
   while (! ble.isConnected()) {
+      //Serial.print(".");
       delay(500);
   }
+
+  Serial.println();
 
   Serial.println(F("******************************"));
 
@@ -178,95 +169,84 @@ void loop(void)
   if (len == 0) return;
 
   /* Got a packet! */
-  // printHex(packetbuffer, len);
-
-  // Color
-  if (packetbuffer[1] == 'C') {
-    uint8_t red = packetbuffer[2];
-    uint8_t green = packetbuffer[3];
-    uint8_t blue = packetbuffer[4];
-    Serial.print ("RGB #");
-    if (red < 0x10) Serial.print("0");
-    Serial.print(red, HEX);
-    if (green < 0x10) Serial.print("0");
-    Serial.print(green, HEX);
-    if (blue < 0x10) Serial.print("0");
-    Serial.println(blue, HEX);
-  }
+  //printHex(packetbuffer, len);
 
   // Buttons
   if (packetbuffer[1] == 'B') {
     uint8_t buttnum = packetbuffer[2] - '0';
     boolean pressed = packetbuffer[3] - '0';
+    /* Print what was pressed / resleased */
     Serial.print ("Button "); Serial.print(buttnum);
     if (pressed) {
       Serial.println(" pressed");
     } else {
       Serial.println(" released");
     }
-  }
+    //Button 1
+    if(buttnum == 1) {
+      if (pressed) {
+        digitalWrite(2, HIGH);
 
-  // GPS Location
-  if (packetbuffer[1] == 'L') {
-    float lat, lon, alt;
-    lat = parsefloat(packetbuffer+2);
-    lon = parsefloat(packetbuffer+6);
-    alt = parsefloat(packetbuffer+10);
-    Serial.print("GPS Location\t");
-    Serial.print("Lat: "); Serial.print(lat, 4); // 4 digits of precision!
-    Serial.print('\t');
-    Serial.print("Lon: "); Serial.print(lon, 4); // 4 digits of precision!
-    Serial.print('\t');
-    Serial.print(alt, 4); Serial.println(" meters");
-  }
+      } else {
+        digitalWrite(2, LOW);
+      }
+    }
+    //Button 2
+    if(buttnum == 2) {
+      if (pressed) {
 
-  // Accelerometer
-  if (packetbuffer[1] == 'A') {
-    float x, y, z;
-    x = parsefloat(packetbuffer+2);
-    y = parsefloat(packetbuffer+6);
-    z = parsefloat(packetbuffer+10);
-    Serial.print("Accel\t");
-    Serial.print(x); Serial.print('\t');
-    Serial.print(y); Serial.print('\t');
-    Serial.print(z); Serial.println();
-  }
+      } else {
 
-  // Magnetometer
-  if (packetbuffer[1] == 'M') {
-    float x, y, z;
-    x = parsefloat(packetbuffer+2);
-    y = parsefloat(packetbuffer+6);
-    z = parsefloat(packetbuffer+10);
-    Serial.print("Mag\t");
-    Serial.print(x); Serial.print('\t');
-    Serial.print(y); Serial.print('\t');
-    Serial.print(z); Serial.println();
-  }
+      }
+    }
+    //Button 3
+    if(buttnum == 3) {
+      if (pressed) {
 
-  // Gyroscope
-  if (packetbuffer[1] == 'G') {
-    float x, y, z;
-    x = parsefloat(packetbuffer+2);
-    y = parsefloat(packetbuffer+6);
-    z = parsefloat(packetbuffer+10);
-    Serial.print("Gyro\t");
-    Serial.print(x); Serial.print('\t');
-    Serial.print(y); Serial.print('\t');
-    Serial.print(z); Serial.println();
-  }
+      } else {
 
-  // Quaternions
-  if (packetbuffer[1] == 'Q') {
-    float x, y, z, w;
-    x = parsefloat(packetbuffer+2);
-    y = parsefloat(packetbuffer+6);
-    z = parsefloat(packetbuffer+10);
-    w = parsefloat(packetbuffer+14);
-    Serial.print("Quat\t");
-    Serial.print(x); Serial.print('\t');
-    Serial.print(y); Serial.print('\t');
-    Serial.print(z); Serial.print('\t');
-    Serial.print(w); Serial.println();
+      }
+    }
+    //Button 4
+    if(buttnum == 4) {
+      if (pressed) {
+
+      } else {
+
+      }
+    }
+    //Up Arrow
+    if(buttnum == 5) {
+      if (pressed) {
+
+      } else {
+
+      }
+    }
+    //Down Arrow
+    if(buttnum == 6) {
+      if (pressed) {
+
+      } else {
+
+      }
+    }
+    //Left Arrow
+    if(buttnum == 7) {
+      if (pressed) {
+
+      } else {
+
+      }
+    }
+    //Right Arrow
+    if(buttnum == 8) {
+      if (pressed) {
+
+      } else {
+
+      }
+    }
+    
   }
 }
