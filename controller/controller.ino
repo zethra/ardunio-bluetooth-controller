@@ -89,9 +89,7 @@ extern uint8_t packetbuffer[];
             automatically on startup)
 */
 /**************************************************************************/
-void setup(void)
-{
-  pinMode(2, OUTPUT);
+void setup(void) {
   while (!Serial);  // required for Flora & Micro
   delay(500);
 
@@ -102,14 +100,12 @@ void setup(void)
   /* Initialise the module */
   Serial.print(F("Initialising the Bluefruit LE module: "));
 
-  if ( !ble.begin(VERBOSE_MODE) )
-  {
+  if ( !ble.begin(VERBOSE_MODE) ) {
     error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
   }
   Serial.println( F("OK!") );
 
-  if ( FACTORYRESET_ENABLE )
-  {
+  if ( FACTORYRESET_ENABLE ) {
     /* Perform a factory reset to make sure everything is in a known state */
     Serial.println(F("Performing a factory reset: "));
     if ( ! ble.factoryReset() ){
@@ -142,8 +138,7 @@ void setup(void)
   Serial.println(F("******************************"));
 
   // LED Activity command is only supported from 0.6.6
-  if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) )
-  {
+  if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) ) {
     // Change Mode LED Activity
     Serial.println(F("Change LED activity to " MODE_LED_BEHAVIOUR));
     ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
@@ -162,8 +157,7 @@ void setup(void)
     @brief  Constantly poll for new command or response data
 */
 /**************************************************************************/
-void loop(void)
-{
+void loop(void) {
   /* Wait for new data to arrive */
   uint8_t len = readPacket(&ble, BLE_READPACKET_TIMEOUT);
   if (len == 0) return;
@@ -185,66 +179,81 @@ void loop(void)
     //Button 1
     if(buttnum == 1) {
       if (pressed) {
-        digitalWrite(2, HIGH);
+        //When pressed
 
       } else {
-        digitalWrite(2, LOW);
+        //When released
+        
       }
     }
     //Button 2
     if(buttnum == 2) {
       if (pressed) {
+        //When pressed
 
       } else {
-
+        //When released
+        
       }
     }
     //Button 3
     if(buttnum == 3) {
       if (pressed) {
+        //When pressed
 
       } else {
-
+        //When released
+        
       }
     }
     //Button 4
     if(buttnum == 4) {
       if (pressed) {
+        //When pressed
 
       } else {
-
+        //When released
+        
       }
     }
     //Up Arrow
     if(buttnum == 5) {
       if (pressed) {
+        //When pressed
 
       } else {
-
+        //When released
+        
       }
     }
     //Down Arrow
     if(buttnum == 6) {
       if (pressed) {
+        //When pressed
 
       } else {
-
+        //When released
+        
       }
     }
     //Left Arrow
     if(buttnum == 7) {
       if (pressed) {
+        //When pressed
 
       } else {
-
+        //When released
+        
       }
     }
     //Right Arrow
     if(buttnum == 8) {
       if (pressed) {
+        //When pressed
 
       } else {
-
+        //When released
+        
       }
     }
     
