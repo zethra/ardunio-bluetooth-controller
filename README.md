@@ -12,3 +12,10 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 ## Programing
 
  - Download this repo as a zip
+
+![Dowload](/assets/download.png)
+
+ - Exctract the zip achieve
+ - Copy the contents of the `libraries` directory to `C:\Users\hcadmin\Documents\Arduino\libraries`
+ - Open `controller/controller.ino`
+ - Added your own code in the designated sections
