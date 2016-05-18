@@ -21,3 +21,5 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
  - Added your own code in the designated sections
 
 ![Code](/assets/code.png)
+
+ - Refer to the [examples](https://github.com/zethra/ardunio-bluetooth-controller/tree/master/examples/) for help
