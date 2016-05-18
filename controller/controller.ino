@@ -179,80 +179,80 @@ void loop(void) {
     //Button 1
     if(buttnum == 1) {
       if (pressed) {
-        //When pressed
+        //When Button 1 pressed
 
       } else {
-        //When released
+        //When Button 1 released
         
       }
     }
     //Button 2
     if(buttnum == 2) {
       if (pressed) {
-        //When pressed
+        //When Button 2 pressed
 
       } else {
-        //When released
+        //When Button 2 released
         
       }
     }
     //Button 3
     if(buttnum == 3) {
       if (pressed) {
-        //When pressed
+        //When Button 3 pressed
 
       } else {
-        //When released
+        //When Button 3 released
         
       }
     }
     //Button 4
     if(buttnum == 4) {
       if (pressed) {
-        //When pressed
+        //When Button 4 pressed
 
       } else {
-        //When released
+        //When Button 4 released
         
       }
     }
     //Up Arrow
     if(buttnum == 5) {
       if (pressed) {
-        //When pressed
+        //When Up Arrow pressed
 
       } else {
-        //When released
+        //When Up Arrow released
         
       }
     }
     //Down Arrow
     if(buttnum == 6) {
       if (pressed) {
-        //When pressed
+        //When Down Arrow pressed
 
       } else {
-        //When released
+        //When Down Arrow released
         
       }
     }
     //Left Arrow
     if(buttnum == 7) {
       if (pressed) {
-        //When pressed
+        //When Left Arrow pressed
 
       } else {
-        //When released
+        //When Left Arrow released
         
       }
     }
     //Right Arrow
     if(buttnum == 8) {
       if (pressed) {
-        //When pressed
+        //When Right Arrow pressed
 
       } else {
-        //When released
+        //When Right Arrow released
         
       }
     }
