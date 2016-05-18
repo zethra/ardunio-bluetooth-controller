@@ -19,3 +19,5 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
  - Copy the contents of the `libraries` directory to `C:\Users\hcadmin\Documents\Arduino\libraries`
  - Open `controller/controller.ino`
  - Added your own code in the designated sections
+
+![Code](/assets/code.png)
