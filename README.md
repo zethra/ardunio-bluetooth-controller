@@ -1,12 +1,14 @@
 # Ardunio Bluetooth Controller with Vex for HCRHS
-
 Note: instruction derived from this [adarfuit artical](https://learn.adafruit.com/introducing-the-adafruit-bluefruit-le-uart-friend/)
 
+![Bluefruit](/assets/bluefruit.jpg)
 ## Wiring
 
  - Refer to [wiring diagram][wiring] for how to wire the Bluefruit LE
  - Wiring remaing motor 
- 
+ - Make sure the switch is flipped to the UART side
+
+![UART](/assets/uart-switch.jpg)
 [wiring]: https://learn.adafruit.com/introducing-the-adafruit-bluefruit-le-uart-friend/wiring
 
 ## Programing
