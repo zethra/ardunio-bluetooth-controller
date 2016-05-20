@@ -4,7 +4,7 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 ![Bluefruit](/assets/bluefruit.jpg)
 ## Wiring
 
- - Refer to [wiring diagram][wiring] for how to wire the Bluefruit LE
+ - Refer to the [wiring diagram][wiring] for how to wire the Bluefruit LE
  - Wire remaing motors 
  - Make sure the switch is flipped to the UART side
 
@@ -22,6 +22,8 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 ![Code](/assets/code.png)
 
  - Refer to the [examples](https://github.com/zethra/ardunio-bluetooth-controller/tree/master/examples/) for help
+
+## Control
  - Install the Bluefruit LE app for [Andriod][andriod] or [IOS][ios]
  
 [andriod]: https://play.google.com/store/apps/details?id=com.adafruit.bluefruit.le.connect&hl=en
