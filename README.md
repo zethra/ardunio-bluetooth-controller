@@ -13,10 +13,7 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 
 ## Programing
 
- - Download this repo as a zip
-
-![Dowload](/assets/download.png)
-
+ - [Download this repo](https://github.com/zethra/ardunio-bluetooth-controller/archive/master.zip)
  - Exctract the zip achieve
  - Copy the contents of the `libraries` directory to `C:\Users\hcadmin\Documents\Arduino\libraries`
  - Open `controller/controller.ino`
@@ -25,3 +22,7 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 ![Code](/assets/code.png)
 
  - Refer to the [examples](https://github.com/zethra/ardunio-bluetooth-controller/tree/master/examples/) for help
+ - Install the Bluefruit LE app for [Andriod][andriod] or [ISO][iso]
+ 
+[andriod]: https://play.google.com/store/apps/details?id=com.adafruit.bluefruit.le.connect&hl=en
+[ios]: https://itunes.apple.com/us/app/adafruit-bluefruit-le-connect/id830125974?mt=8
