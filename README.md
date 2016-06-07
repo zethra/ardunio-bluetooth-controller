@@ -13,6 +13,7 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 
 ## Programing
 
+ - Make sure the Ardunio IDE is upated to at least version 1.6
  - [Download this repo](https://github.com/zethra/ardunio-bluetooth-controller/archive/master.zip)
  - Exctract the zip achieve
  - Copy the contents of the `libraries` directory to `C:\Users\hcadmin\Documents\Arduino\libraries`
