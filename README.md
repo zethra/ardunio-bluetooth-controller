@@ -6,6 +6,7 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 
  - Refer to the [wiring diagram][wiring] for how to wire the Bluefruit LE
  - Wire remaing motors 
+ - ![Motor witing](/assets/motor-wiring.png)
  - Make sure the switch is flipped to the UART side
 
 ![UART](/assets/uart-switch.jpg)
