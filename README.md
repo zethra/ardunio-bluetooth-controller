@@ -29,9 +29,14 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
  - Flip the previously metioned switch on the Bluefruit LE to the CMD side
  - Upload the `atcommand` sketch included in the zip to the ardunio
  - Open the serial console in the Arundio IDE
+ - You should see something like this after a few seconds
+ - ![Rename starting console](/assets/name1.png)
  - Type the command `AT+GAPDEVNAME=YOUR NAME HERE` into the input box and hit send (example command: `AT+GAPDEVNAME=HCRHS Test Bot #1`)
+ - ![Rename typed command](/assets/name2.png)
+ - ![Rename sent command](/assets/name3.png)
 
 ## Control
+ - Flip the previously metioned switch on the Bluefruit LE to the UART side
  - Install the Bluefruit LE app for [Andriod][andriod] or [IOS][ios]
  - Connect the Arduino to the computer
  - Open the Arduino IDE and upload your code
