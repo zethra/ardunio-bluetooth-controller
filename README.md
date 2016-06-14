@@ -25,6 +25,12 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
 
  - Refer to the [examples](https://github.com/zethra/ardunio-bluetooth-controller/tree/master/examples/) for help
 
+## Naming Your Robot
+ - Flip the previously metioned switch on the Bluefruit LE to the CMD side
+ - Upload the `atcommand` sketch included in the zip to the ardunio
+ - Open the serial console in the Arundio IDE
+ - Type the command `AT+GAPDEVNAME=YOUR NAME HERE` into the input box and hit send (example command: `AT+GAPDEVNAME=HCRHS Test Bot #1`)
+
 ## Control
  - Install the Bluefruit LE app for [Andriod][andriod] or [IOS][ios]
  - Connect the Arduino to the computer
@@ -33,7 +39,7 @@ Note: instruction derived from this [adarfuit artical](https://learn.adafruit.co
  - You should see the following output
  - ![Bluetooth List](/assets/serial1.png)
  - Open the app and make sure bluetooth is turned on
- - Find the Blufruit LE in the list of devices and click connect
+ - Find the Your Robot in the list of devices and click connect
  - ![Bluetooth List](/assets/app1.png)
  - Click controller
  - ![Click controller](/assets/app2.png)
